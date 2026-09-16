@@ -1,15 +1,14 @@
 start = events
 events = element events {track+}
-track = element track {type, name, event+}
+track = element track {attribute type { xsd:integer }, name, event+}
 
 # start event schema
-type = attribute type {xsd:integer | ("start" | "end") }
 name = attribute name {"early" | "mid" | "late"}
 event = element event {title, date+, description, lat*, lon*, media*}
 title = element title {text}
 
 # date schema
-date = element date {type, year*, month*, day*, era*}
+date = element date {attribute type { "start" | "end" }, year*, month*, day*, era*}
 year = element year {xsd:integer}
 month = element month {xsd:integer}
 day = element day {xsd:integer}
